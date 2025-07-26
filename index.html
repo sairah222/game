@@ -1,45 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>body{
-        background-color: rgb(220, 220, 220);}
-        h1{text-align: center;}
-        p{text-align: center;
-          font-weight: 900;
-          font-size: x-large;
-          margin: auto;
-          flex-wrap: wrap;
-          
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whack-a-mole</title>
+  <style>
+    body {
+      background-color: rgb(220, 220, 220);
     }
-    
-        #main-container{
-            display:flex;
-            margin:auto;
-            width:max-content;
-            height: 85vh;
-        }
-        #main-container div{
-            padding: 5em;
-            background-color: gray;
-            margin: 0.5em;
-            border-radius: 50%;
-            height: 5rem;
-            width: 5rem;
-
-        }
-        </style>
-
+    h1 {
+      text-align: center;
+    }
+    p {
+      text-align: center;
+      font-weight: 900;
+      font-size: x-large;
+    }
+    #main-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 85vh;
+    }
+    #main-container div {
+      padding: 5em;
+      background-color: gray;
+      margin: 0.5em;
+      border-radius: 50%;
+      height: 5rem;
+      width: 5rem;
+    }
+  </style>
 </head>
 <body>
-  <h1>Whack-a-mole</h1> 
+  <h1>Whack-a-mole</h1>
   <p>Score: 0</p>
   <div id="main-container">
-    <div></div>
-    <div></div>
-    <div></div>
+    <div id="c1"></div>
+    <div id="c2"></div>
+    <div id="c3"></div>
   </div>
+
+  <script>
+    const c1 = document.getElementById("c1");
+    const c2 = document.getElementById("c2");
+    const c3 = document.getElementById("c3");
+
+    const cells = [c1, c2, c3];
+
+    setInterval(function () {
+      const random = Math.floor(Math.random() * 3); // 0, 1, or 2
+
+      // Reset all to gray
+      cells.forEach(cell => cell.style.backgroundColor = "gray");
+
+      // Highlight one randomly
+      cells[random].style.backgroundColor = "green";
+    }, 400);
+  </script>
 </body>
 </html>
